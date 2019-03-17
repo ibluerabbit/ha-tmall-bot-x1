@@ -1,0 +1,46 @@
+<?php
+
+  $item = [];
+  $item['TurnOn']='打开';
+  $item['TurnOff']='关闭';
+  $item['SelectChannel']='频道切换';
+  $item['AdjustUpChannel']='频道增加';
+  $item['AdjustDownChannel']='频道减少';
+  $item['AdjustUpVolume']='声音按照步长调大';
+  $item['AdjustDownVolume']='声音按照步长调小';
+  $item['SetVolume']='声音调到某个值';
+  $item['SetMute']='设置静音';
+  $item['CancelMute']='取消静音';
+  $item['Play']='播放';
+  $item['Pause']='暂停';
+  $item['Continue']='继续';
+  $item['Next']='下一首或下一台';
+  $item['Previous']='上一首或上一台';
+  $item['SetBrightness']='设置亮度';
+  $item['AdjustUpBrightness']='调大亮度';
+  $item['AdjustDownBrightness']='调小亮度';
+  $item['SetTemperature']='设置温度';
+  $item['AdjustUpTemperature']='调高温度';
+  $item['AdjustDownTemperature']='调低温度';
+  $item['SetWindSpeed']='设置风速';
+  $item['AdjustUpWindSpeed']='调大风速';
+  $item['AdjustDownWindSpeed']='调小风速';
+  $item['SetMode']='模式的切换';
+  $item['SetColor']='设置颜色';
+  $item['OpenFunction']='打开功能';
+  $item['CloseFunction']='关闭功能';
+  $item['Cancel']='取消';
+  $item['CancelMode']='取消模式(退出模式)';
+
+  $item['Query']='查询所有标准属性';
+  $item['QueryColor']='查询颜色';
+  $item['QueryPowerState']='查询电源开关';
+  $item['QueryTemperature']='查询温度';
+  $item['QueryHumidity']='查询湿度';
+  $item['QueryWindSpeed']='查询风速';
+  $item['QueryBrightness']='查询亮度';
+  $item['QueryFog']='查询雾量';
+  $item['QueryMode']='查询模式';
+  $item['QueryPM25']='查询pm2.5含量';
+  $item['QueryDirection']='查询方向';
+  $item['QueryAngle']='查询角度';
