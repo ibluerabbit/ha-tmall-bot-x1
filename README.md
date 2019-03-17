@@ -21,6 +21,6 @@ insert into oauth_users (username,password,ha_url,ha_auth_code) values ('your_us
 php -r "echo md5('yourpassword');"
 
 ## 参考链接
-https://github.com/c1pher-cn/tmall-bot-x1
-https://github.com/bshaffer/oauth2-server-php
-https://doc-bot.tmall.com/docs/doc.htm?spm=0.7629140.0.0.55c417809wAykW&treeId=393&articleId=107674&docType=1
+- [c1pher 写的 天猫精灵接入HomeAssistant 代码](https://github.com/c1pher-cn/tmall-bot-x1)
+- [oauth2-server-php](https://github.com/bshaffer/oauth2-server-php)
+- [天猫精灵官方文档](https://doc-bot.tmall.com/docs/doc.htm?spm=0.7629140.0.0.55c417809wAykW&treeId=393&articleId=107674&docType=1)
