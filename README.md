@@ -2,16 +2,24 @@
 
 ## 安装web服务程序
 比如
-`apt install apache2`
+```
+apt install apache2`
+```
 
 ## 安装php sqlite3
-`apt install php7.0 sqlite3 php7.0-sqlite3`
+```
+apt install php7.0 sqlite3 php7.0-sqlite3
+```
 
 ## 下载oauth2-server-php 
-`git clone https://github.com/bshaffer/oauth2-server-php.git`
+```
+git clone https://github.com/bshaffer/oauth2-server-php.git
+```
 
 ## 下载ha-tmall-bot-x1
-`git clone https://github.com/swif-ti/ha-tmall-bot-x1.git`
+```
+git clone https://github.com/swif-ti/ha-tmall-bot-x1.git
+```
 
 ## 创建数据库
 执行
@@ -36,15 +44,22 @@ chmod 666 /var/www/db/tmall-bot-x1.db
 
 ## 配置web服务程序并重启服务
 根据实际环境配置
+
 ###重启服务
 比如：
-`systemctl restart apache2`
+```
+systemctl restart apache2
+```
 
 ## 生成密码md5值
 php:
-`php -r "echo md5('yourpassword');"`
+```
+php -r "echo md5('yourpassword');"
+```
 md5sum:
-`md5sum [yourpasswordfile]`
+```
+md5sum [yourpasswordfile]
+```
 用md5sum注意密码文件不要有多余的空格或换行符
 
 ## 添加用户
@@ -62,8 +77,10 @@ insert into oauth_users (username,password,ha_url,ha_auth_code) values ('your_us
 
 ## 使用设备管理页面管理设备
 路径根据web服务程序设置确定
+
 比如：
-`http://localhost/device_manager.php`
+```
+http://localhost/device_manager.php```
 
 ## 参考链接
 - [c1pher 写的 天猫精灵接入HomeAssistant 代码](https://github.com/c1pher-cn/tmall-bot-x1)
