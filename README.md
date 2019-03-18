@@ -1,5 +1,5 @@
 # ha-tmall-bot-x1
-实现天猫精灵接入Home Assistant 
+实现Home Assistant接入天猫精灵 
 
 ## 测试环境
 硬件：树莓派3B
@@ -49,7 +49,7 @@ chmod 666 /var/www/db/tmall-bot-x1.db
 - ha-tmall-bot-x1/oauth2/server.php中Autoloader.php
 
 ## 配置web服务程序并重启服务
-根据实际环境配置
+根据实际环境配置,将ha-tmall-bot-x1文件夹设置为web目录
 
 重启服务,比如：
 ```
@@ -71,11 +71,11 @@ md5sum [yourpasswordfile]
 
 ```
 sqlite3 /var/www/db/oauth2.db
-INSERT INTO oauth_users (username,password,ha_url,ha_auth_code) VALUES ('your_user_id','password_md5','https://your.home.assistant/url','long-lived access tokens')
-INSERT INTO oauth_clients (client_id, client_secret, redirect_uri) VALUES ("testclient", "testpass", "http://fake/");
+INSERT INTO oauth_users (username, password, ha_url, ha_auth_code) VALUES ('your_user_id','password_md5','https://your.home.assistant/url','long-lived access tokens')
+INSERT INTO oauth_clients (client_id, client_secret, redirect_uri) VALUES ('testclient', 'testpass', 'https://open.bot.tmall.com/oauth/callback');
 ```
 
-## AliGenie平台设置
+## AliGenie开发平台设置
 主要页面文件名称
 - 开发网关：gateway.php
 - 帐户授权：authorize.php
@@ -88,6 +88,11 @@ INSERT INTO oauth_clients (client_id, client_secret, redirect_uri) VALUES ("test
 ```
 http://localhost/device_manager.php
 ```
+## 其他说明
+- Access Token 的有效时间在 server.php 中设置(access_lifetime),过期后需要登录AliGenie开发平台重新授权
+- AliGenie开发平台中填写的uri要在公网中可以访问
+- 没有公网IP，可以使用frp,ngrok之类的内网穿透服务，网上有免费的（稳定性一般），也可以购买ECS自己搭
+- 建议使用https加密http通信
 
 ## 参考链接
 - [c1pher 写的 天猫精灵接入HomeAssistant 代码](https://github.com/c1pher-cn/tmall-bot-x1)
