@@ -45,8 +45,7 @@ chmod 666 /var/www/db/tmall-bot-x1.db
 ## 配置web服务程序并重启服务
 根据实际环境配置
 
-###重启服务
-比如：
+重启服务,比如：
 ```
 systemctl restart apache2
 ```
@@ -70,7 +69,7 @@ insert into oauth_users (username,password,ha_url,ha_auth_code) values ('your_us
 ```
 
 ## AliGenie平台设置
-###主要页面文件名称
+主要页面文件名称
 - 开发网关：gateway.php
 - 帐户授权：authorize.php
 - Access Token：token.php
@@ -80,7 +79,8 @@ insert into oauth_users (username,password,ha_url,ha_auth_code) values ('your_us
 
 比如：
 ```
-http://localhost/device_manager.php```
+http://localhost/device_manager.php
+```
 
 ## 参考链接
 - [c1pher 写的 天猫精灵接入HomeAssistant 代码](https://github.com/c1pher-cn/tmall-bot-x1)
