@@ -114,7 +114,7 @@ function device_control($obj, $user){
       $action="turn_on";
       $bright_map['min'] = 1;
       $bright_map['max'] = 100;
-      $bright = get_map_value($mode_map, strtolower($value), (int)$value);
+      $bright = get_map_value($bright_map, strtolower($value), (int)$value);
 
       $post_data['brightness_pct'] = $bright;
     }
@@ -174,7 +174,7 @@ function device_control($obj, $user){
     $mode_map['ventilate'] = 'fan_only';
     $mode_map['dehumidification'] = 'dry';
     $mode_map['off'] = 'off';
-    $action = get_map_value($action_map, $obj->payload->value, '');
+    $mode = get_map_value($mode_map, $obj->payload->value, '');
 
     if ($action == 'set_operation_mode'){
       $post_data['operation_mode'] = $value;

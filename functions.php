@@ -86,15 +86,15 @@ function update_device($user_id,$deviceId,$deviceName,$deviceType,
   $pdo = get_pdo();
   $stmt = $pdo->prepare("update devices set
     deviceName=:deviceName,
-		deviceType=:deviceType,
-		zone=:zone,
-		brand=:brand,
-		model=:model,
-		icon=:icon,
-		properties=:properties,
-		actions=:actions,
-		extensions=:extensions
-		where user_id=:user_id and deviceId=:deviceId");
+    deviceType=:deviceType,
+    zone=:zone,
+    brand=:brand,
+    model=:model,
+    icon=:icon,
+    properties=:properties,
+    actions=:actions,
+    extensions=:extensions
+    where user_id=:user_id and deviceId=:deviceId");
   $stmt->bindParam(":user_id",$user_id,PDO::PARAM_STR);
   $stmt->bindParam(":deviceId",$deviceId,PDO::PARAM_STR);
   $stmt->bindParam(":deviceName",$deviceName,PDO::PARAM_STR);
