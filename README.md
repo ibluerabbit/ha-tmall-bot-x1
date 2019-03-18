@@ -1,4 +1,5 @@
 # ha-tmall-bot-x1
+实现天猫精灵接入Home Assistant 
 
 ## 测试环境
 硬件：树莓派3B
@@ -66,11 +67,12 @@ md5sum [yourpasswordfile]
 ```
 用md5sum注意密码文件不要有多余的空格或换行符
 
-## 添加用户
+## 添加OAuth用户和cilent
 
 ```
 sqlite3 /var/www/db/oauth2.db
-insert into oauth_users (username,password,ha_url,ha_auth_code) values ('your_user_id','password_md5','https://your.home.assistant/url','long-lived access tokens')
+INSERT INTO oauth_users (username,password,ha_url,ha_auth_code) VALUES ('your_user_id','password_md5','https://your.home.assistant/url','long-lived access tokens')
+INSERT INTO oauth_clients (client_id, client_secret, redirect_uri) VALUES ("testclient", "testpass", "http://fake/");
 ```
 
 ## AliGenie平台设置
