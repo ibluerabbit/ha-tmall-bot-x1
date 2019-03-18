@@ -76,10 +76,14 @@ INSERT INTO oauth_clients (client_id, client_secret, redirect_uri) VALUES ('test
 ```
 
 ## AliGenie开发平台设置
-主要页面文件名称
-- 开发网关：gateway.php
-- 帐户授权：authorize.php
-- Access Token：token.php
+[开发平台链接](https://open.aligenie.com/)
+服务设置：
+- 账户授权连接：https://your.server/oauth2/authorize.php
+- Client ID: testclient
+- Client Secret: testpass
+- 跳转 URL: https://open.bot.tmall.com/oauth/callback
+- Access Token URL: https://your.server/oauth2/token.php
+- 开发者网关地址: https://your.server/gateway.php
 
 ## 使用设备管理页面管理设备
 路径根据web服务程序设置确定
@@ -89,8 +93,9 @@ INSERT INTO oauth_clients (client_id, client_secret, redirect_uri) VALUES ('test
 http://localhost/device_manager.php
 ```
 ## 其他说明
+- 以上用户名、密码、HA授权码、主机域名、Client ID、Client Secret等，请根据实际情况更改
 - Access Token 的有效时间在 server.php 中设置(access_lifetime),过期后需要登录AliGenie开发平台重新授权
-- AliGenie开发平台中填写的uri要在公网中可以访问
+- AliGenie开发平台中填写的url和ha_url要在公网中可以访问
 - 没有公网IP，可以使用frp,ngrok之类的内网穿透服务，网上有免费的（稳定性一般），也可以购买ECS自己搭
 - 建议使用https加密http通信,推荐使用certbot获取Let's Encrypt证书
 
