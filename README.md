@@ -1,14 +1,18 @@
 # ha-tmall-bot-x1
 
+## 测试环境
+硬件：树莓派3B
+系统：Raspbian Strech
+
 ## 安装web服务程序
 比如
 ```
-apt install apache2`
+sudo apt install apache2
 ```
 
 ## 安装php sqlite3
 ```
-apt install php7.0 sqlite3 php7.0-sqlite3
+sudo apt install php7.0 sqlite3 php7.0-sqlite3
 ```
 
 ## 下载oauth2-server-php 
@@ -47,7 +51,7 @@ chmod 666 /var/www/db/tmall-bot-x1.db
 
 重启服务,比如：
 ```
-systemctl restart apache2
+sudo systemctl restart apache2
 ```
 
 ## 生成密码md5值
