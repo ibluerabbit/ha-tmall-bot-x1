@@ -92,7 +92,7 @@ http://localhost/device_manager.php
 - Access Token 的有效时间在 server.php 中设置(access_lifetime),过期后需要登录AliGenie开发平台重新授权
 - AliGenie开发平台中填写的uri要在公网中可以访问
 - 没有公网IP，可以使用frp,ngrok之类的内网穿透服务，网上有免费的（稳定性一般），也可以购买ECS自己搭
-- 建议使用https加密http通信
+- 建议使用https加密http通信,推荐使用certbot获取Let's Encrypt证书
 
 ## 参考链接
 - [c1pher 写的 天猫精灵接入HomeAssistant 代码](https://github.com/c1pher-cn/tmall-bot-x1)
