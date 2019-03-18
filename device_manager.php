@@ -3,7 +3,7 @@ require_once __DIR__.'/oauth2/server.php';
 require_once __DIR__.'/functions.php';
 
 function get_device_type_list($select){
-  require __DIR__.'/device_type_items.php';
+  require __DIR__.'/items/device_type_items.php';
   $s = '';
   foreach($item as $key=>$val){
     $selected = ($key==$select ? 'selected' : '');
@@ -13,7 +13,7 @@ function get_device_type_list($select){
 }
 
 function get_device_name_list($select){
-  require __DIR__.'/device_name_items.php';
+  require __DIR__.'/items/device_name_items.php';
   $names = json_decode($json, true);
   $options = '';
   foreach($names['data'] as $item){
@@ -34,7 +34,7 @@ function get_zone_list($select){
 }
 
 function get_action_list($select){
-  require __DIR__.'/action_items.php';
+  require __DIR__.'/items/action_items.php';
   $s = '';
   foreach($item as $key=>$val){
     $selected = ($select && in_array($key,$select) ? 'checked' : '');
@@ -44,7 +44,7 @@ function get_action_list($select){
 }
 
 function get_property_list($select){
-  require __DIR__.'/property_items.php';
+  require __DIR__.'/items/property_items.php';
   $s = '';
   foreach($item as $key=>$val){
     $selected = ($select && in_array($key,$select) ? 'checked' : '');
@@ -230,7 +230,7 @@ function print_footer(){
 ';
 }
 function print_scripts(){
-  require __DIR__.'/device_name_items.php';
+  require __DIR__.'/items/device_name_items.php';
   echo '
 <script>
 var device_names='.$json.';

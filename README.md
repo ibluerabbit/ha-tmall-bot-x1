@@ -31,8 +31,8 @@ git clone https://github.com/swif-ti/ha-tmall-bot-x1.git
 执行
 ```
 mkdir -p /var/www/db
-sqlite3 /var/www/db/oauth2.db < oauth2.sql
-sqlite3 /var/www/db/tmall-bot-x1.db < oauth2.sql
+sqlite3 /var/www/db/oauth2.db < ha-tmall-bot-x1/sql/oauth2.sql
+sqlite3 /var/www/db/tmall-bot-x1.db < ha-tmall-bot-x1/sql/tmall-bot-x1.sql
 ```
 
 ## 设置好数据库和所属文件夹访问权限
