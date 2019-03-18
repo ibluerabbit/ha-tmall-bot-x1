@@ -9,7 +9,7 @@ function device_discovery($obj, $user){
   return $response->send();
 }
 
-function  device_query($obj, $user){       
+function device_query($obj, $user){       
   $device_id=$obj->payload->deviceId;
   $device = get_device($user['user_id'],$device_id);
   $device_obj = get_device_obj($device);
@@ -39,9 +39,7 @@ function  device_query($obj, $user){
   return $response->send(); 
 }	
 
-function  device_control($obj, $user){
-  /* TODO: validate user device */
-
+function device_control($obj, $user){
   $action = '';
   $ha_device = '';
   $device_id=$obj->payload->deviceId;
