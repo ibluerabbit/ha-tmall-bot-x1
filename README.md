@@ -49,9 +49,11 @@ chmod 666 /var/www/db/tmall-bot-x1.db
 - ha-tmall-bot-x1/oauth2/server.php中Autoloader.php
 
 ## 配置web服务程序并重启服务
-根据实际环境配置,将ha-tmall-bot-x1文件夹设置为web目录
+1.根据实际环境配置,建议使用ssl加密http通信,推荐使用certbot获取Let's Encrypt证书
 
-重启服务,比如：
+2.将ha-tmall-bot-x1文件夹设置为web目录
+
+3.重启服务,比如：
 ```
 sudo systemctl restart apache2
 ```
@@ -71,7 +73,7 @@ md5sum [yourpasswordfile]
 
 ```
 sqlite3 /var/www/db/oauth2.db
-INSERT INTO oauth_users (username, password, ha_url, ha_auth_code) VALUES ('your_user_id','password_md5','https://your.home.assistant/url','long-lived access tokens')
+INSERT INTO oauth_users (username, password, ha_url, ha_auth_code) VALUES ('your_user_id','password_md5','https://your.server/home-assistant-url','long-lived access tokens')
 INSERT INTO oauth_clients (client_id, client_secret, redirect_uri) VALUES ('testclient', 'testpass', 'https://open.bot.tmall.com/oauth/callback');
 ```
 
@@ -90,14 +92,15 @@ INSERT INTO oauth_clients (client_id, client_secret, redirect_uri) VALUES ('test
 
 比如：
 ```
-http://localhost/device_manager.php
+https://your.server/device_manager.php
 ```
+登录用户和密码同授权页面
+
 ## 其他说明
 - 以上用户名、密码、HA授权码、主机域名、Client ID、Client Secret等，请根据实际情况更改
 - Access Token 的有效时间在 server.php 中设置(access_lifetime),过期后需要登录AliGenie开发平台重新授权
 - AliGenie开发平台中填写的url和ha_url要在公网中可以访问
 - 没有公网IP，可以使用frp,ngrok之类的内网穿透服务，网上有免费的（稳定性一般），也可以购买ECS自己搭
-- 建议使用https加密http通信,推荐使用certbot获取Let's Encrypt证书
 
 ## 参考链接
 - [c1pher 写的 天猫精灵接入HomeAssistant 代码](https://github.com/c1pher-cn/tmall-bot-x1)
