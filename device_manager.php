@@ -182,9 +182,9 @@ function print_header(){
   <title>Tmall-Bot-X1 设备管理</title>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <style>
 body{
+  padding:5px;
   font-size:14px;
 }
 a{
@@ -229,34 +229,39 @@ function print_footer(){
 </html>
 ';
 }
-function print_scripts(){
+function print_scripts($data){
   require __DIR__.'/items/device_name_items.php';
   echo '
 <script>
-var device_names='.$json.';
-device_main_name = document.getElementById("deviceMainName");
-device_name = document.getElementById("deviceName");
-device_main_name.onchange=function(){
+
+function update_device_name(e){
   while(device_name.length>0) device_name.remove(0);
   for(var i=0; i<device_names.data.length; i++)
     if (device_names.data[i]["key"] == device_main_name.value){
       for(var j=0; j<device_names.data[i]["value"].length; j++){
         option = document.createElement("option");
         option.text = device_names.data[i]["value"][j];
+        option.selected = (option.text == "'.$data['deviceName'].'");
         device_name.add(option);
       }
       break;
     }
 }
+
+var device_names='.$json.';
+device_main_name = document.getElementById("deviceMainName");
+device_name = document.getElementById("deviceName");
+device_main_name.onchange=update_device_name;
+update_device_name();
 </script>';
 }
 
 function list_devices($user_id){
   $devices = get_device_list($user_id);
-  echo '<a href="?action=add">添加</a>';
+  echo '<a href="?action=add">+添加</a>';
   echo '
 <table>
-<tr>
+<tr style="font-weight:bold;text-align:center;">
 <td>用户</td>
 <td>设备ID</td>
 <td>设备类型</td>
@@ -338,7 +343,7 @@ if ($login && $user_id) {
     case 'add':
       print_header();
       print_add_form($data);
-      print_scripts();
+      print_scripts($data);
       print_footer();
       break;
 
@@ -348,7 +353,7 @@ if ($login && $user_id) {
       $device['actions']=json_decode($device['actions'],true);
       $device['properties']=json_decode($device['properties'],true);
       print_edit_form($device);
-      print_scripts();
+      print_scripts($device);
       print_footer();
       break;
 
@@ -367,7 +372,6 @@ if ($login && $user_id) {
     default:
       print_header();
       list_devices($user_id);
-      print_scripts();
       print_footer();
   }
 

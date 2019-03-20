@@ -20,8 +20,8 @@ function send_curl_request($method, $url, $auth_code='', $post_data=null){
   }
   curl_setopt($ch, CURLOPT_HTTPHEADER, ["Content-Type: application/json","Authorization: Bearer $auth_code"]);
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
-  curl_setopt($ch, CURLOPT_TIMEOUT, 5); 
-  curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5); 
+  curl_setopt($ch, CURLOPT_TIMEOUT, 10); 
+  curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10); 
   curl_setopt($ch, CURLOPT_URL, $url); 
   return ['response'=>curl_exec($ch), 'info'=>curl_getinfo($ch)]; 
 }
