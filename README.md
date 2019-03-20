@@ -24,7 +24,7 @@ git clone https://github.com/bshaffer/oauth2-server-php.git
 
 ## 下载ha-tmall-bot-x1
 ```
-git clone https://github.com/swif-t/ha-tmall-bot-x1.git
+git clone https://github.com/swif-ti/ha-tmall-bot-x1.git
 ```
 
 ## 创建数据库
