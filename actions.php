@@ -57,9 +57,9 @@ function device_control($obj, $user){
 
   //vacuum
   if ($ha_device == 'vacuum'){
-    $action_map['Continue']='start_pause';
-    $action_map['Pause']='start_pause';
-    $action_map['TurnOn']='turn_on';
+    $action_map['Continue']='start';
+    $action_map['Pause']='pause';
+    $action_map['TurnOn']='start';
     $action_map['TurnOff']='return_to_base';
     $action = get_map_value($action_map, $obj->header->name, '');
   }
@@ -194,7 +194,9 @@ function device_control($obj, $user){
   //send control request
   $post_string = json_encode($post_data);
   $url = $user['ha_url']."/api/services/".$ha_device."/".$action;
+ 
   $control_response = send_curl_request('POST', $url, $user['ha_auth_code'], $post_string); 
+  #error_log(json_encode($control_response));
 
   //response to aligenie
   $response = new Response($obj->header->namespace, $obj->header->name.'Response');
