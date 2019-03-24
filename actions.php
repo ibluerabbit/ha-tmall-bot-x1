@@ -12,7 +12,6 @@ function device_discovery($obj, $user){
 function device_query($obj, $user){       
   $device_id=$obj->payload->deviceId;
   $device = get_device($user['user_id'],$device_id);
-  $device_obj = get_device_obj($device);
   $states=[];
   $url = $user['ha_url']."/api/states/".$device_id; 
   $query_response = send_curl_request('GET', $url, $user['ha_auth_code'])['response'];
@@ -20,10 +19,13 @@ function device_query($obj, $user){
   if (isset($entity->entity_id)){
     $state = $entity->state;
     if($state != 'on' && $state != 'off'){
-      $states[]=['name'=>'powerstate','value'=>'on'];
-      if ($device_obj->properties){
-        foreach($device_obj->properties as $key=>$val)
-          $states[]=['name'=>$key, 'value'=>$state];
+      #$states[]=['name'=>'powerstate', 'value'=>'on'];
+      $properties = json_decode($device['properties'], true);
+      if ($properties){
+        foreach($properties as $property){
+          if ($property != 'powerstate')
+            $states[]=['name'=>$property, 'value'=>$state];
+        }
       }
     } else {
       $states[]=['name'=>'powerstate','value'=>$state];
