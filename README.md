@@ -1,5 +1,5 @@
 # ha-tmall-bot-x1
-实现Home Assistant接入天猫精灵 
+实现Home Assistant对接天猫精灵 
 
 ## 测试环境
 硬件：树莓派3B
